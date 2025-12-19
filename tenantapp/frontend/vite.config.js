@@ -8,8 +8,13 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
-    host: '0.0.0.0',
+    allowedHosts: ['.codei9.shop', 'codei9.shop'],
+    host: true,
     port: 5173,
     strictPort: true,
+    hmr: {
+        host: 'codei9.shop',
+        protocol: 'wss'
+    }
   }
 })

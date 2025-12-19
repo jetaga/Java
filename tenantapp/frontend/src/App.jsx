@@ -1,125 +1,99 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// --- SUB-COMPONENTS ---
-
-const TopNav = () => (
-  <div className="bg-white px-4 py-2 flex items-center gap-3 sticky top-0 z-50">
-    <h1 className="text-2xl font-black text-orange-500 tracking-tighter">TEMU</h1>
-    <div className="flex-1 bg-gray-100 rounded-full flex items-center px-4 py-2 gap-2 border border-transparent focus-within:border-orange-500 transition-all">
-      <span className="text-gray-400 font-bold">🔍</span>
-      <input 
-        type="text" 
-        placeholder="Search Temu" 
-        className="bg-transparent outline-none text-sm w-full" 
-      />
+const TopNav = ({ setTenant, tenant }) => (
+  <div className="bg-white sticky top-0 z-50 shadow-sm border-b">
+    <div className="px-4 py-3 flex items-center justify-between">
+      <h1 className="text-2xl font-black text-blue-600 tracking-tighter">CODEI9</h1>
+      <div className="flex gap-4 text-xl text-gray-400">
+        <span>👤</span>
+        <span className="relative">
+          🛒
+          <span className="absolute -top-1 -right-2 bg-blue-600 text-white text-[10px] rounded-full px-1">0</span>
+        </span>
+      </div>
     </div>
-    <div className="flex gap-4 text-xl">
-      <button className="hover:opacity-70">👤</button>
-      <button className="hover:opacity-70 relative">
-        🛒
-        <span className="absolute -top-1 -right-2 bg-orange-600 text-white text-[10px] rounded-full px-1">2</span>
+    <div className="px-4 pb-2 flex gap-2">
+      <button 
+        onClick={() => setTenant('tenant-a')} 
+        className={`flex-1 py-1 rounded text-xs font-bold transition-colors ${tenant === 'tenant-a' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-500'}`}
+      >
+        STORE A
+      </button>
+      <button 
+        onClick={() => setTenant('tenant-b')} 
+        className={`flex-1 py-1 rounded text-xs font-bold transition-colors ${tenant === 'tenant-b' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-500'}`}
+      >
+        STORE B
       </button>
     </div>
   </div>
 );
 
-const CategorySlider = ({ categories }) => (
-  <div className="bg-white border-b px-4 flex gap-6 overflow-x-auto no-scrollbar py-3 text-sm font-medium text-gray-600 whitespace-nowrap">
-    {categories.map((cat, index) => (
-      <span key={index} className={index === 0 ? "text-black border-b-2 border-black pb-1" : "hover:text-black cursor-pointer"}>
-        {cat}
-      </span>
-    ))}
-  </div>
-);
-
-const HeroBanner = () => (
-  <div className="p-4">
-    <div className="bg-gradient-to-r from-red-600 to-orange-500 rounded-xl p-6 text-white flex justify-between items-center shadow-lg">
-      <div className="max-w-[60%]">
-        <div className="bg-yellow-400 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded inline-block mb-2">LIMITED TIME</div>
-        <h2 className="text-3xl font-black italic leading-tight">90% OFF</h2>
-        <p className="text-sm font-bold opacity-90 uppercase tracking-wide">Holiday Blowout</p>
-        <button className="bg-white text-red-600 px-5 py-1.5 rounded-full font-extrabold mt-3 text-xs shadow-md active:scale-95 transition-transform">
-          SHOP NOW
-        </button>
-      </div>
-      <div className="text-6xl drop-shadow-lg">🎁</div>
-    </div>
-  </div>
-);
-
-const TrustBar = () => (
-  <div className="flex justify-around bg-white border-y border-gray-100 py-2.5 text-[9px] font-bold text-gray-500 uppercase tracking-tighter">
-    <div className="flex items-center gap-1"><span className="text-green-500 text-xs">✓</span> Free shipping</div>
-    <div className="flex items-center gap-1"><span className="text-green-500 text-xs">↺</span> Price adjustment</div>
-    <div className="flex items-center gap-1"><span className="text-green-500 text-xs">🛡️</span> Safe payments</div>
-  </div>
-);
-
 const ProductCard = ({ item }) => (
-  <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-    <div className="relative aspect-square">
-      <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-      <div className="absolute bottom-0 left-0 bg-orange-100 text-orange-700 text-[10px] font-black px-2 py-1 rounded-tr-xl">
-        -{item.discount}%
-      </div>
+  <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+    <div className="aspect-square bg-gray-50 flex items-center justify-center text-4xl">
+      {item.imageUrl ? <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" /> : "📦"}
     </div>
     <div className="p-3">
-      <div className="flex items-center gap-1.5 mb-1">
-        <span className="text-orange-600 font-bold text-lg leading-none">GH₵{item.price}</span>
-        <span className="text-gray-400 line-through text-[10px] font-medium tracking-tight">{item.oldPrice}</span>
-      </div>
-      <div className="bg-orange-600 text-white text-[9px] font-bold inline-block px-1.5 py-0.5 rounded italic">
-        Lightning Deal
-      </div>
-      <p className="text-xs text-gray-500 mt-2 line-clamp-1">{item.title}</p>
+      <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">{item.serviceType || 'General'}</span>
+      <h3 className="font-bold text-gray-800 truncate">{item.name}</h3>
+      <p className="text-blue-600 font-black mt-1">${item.price?.toFixed(2)}</p>
+      <button className="w-full mt-2 bg-gray-900 text-white py-2 rounded text-xs font-bold">ADD TO CART</button>
     </div>
   </div>
 );
 
-// --- MAIN PAGE LAYOUT ---
-
 export default function App() {
-  const categories = ["All", "Crafts", "Bags", "Beauty", "Office", "Automotive", "Home"];
-  const products = [
-    { title: "Portable Blender", price: "178.34", oldPrice: "220.46", discount: "19", image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=400" },
-    { title: "Turbo Jet Fan", price: "210.84", oldPrice: "595.92", discount: "64", image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400" },
-    { title: "Smart Watch", price: "145.00", oldPrice: "300.00", discount: "50", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-    { title: "Wireless Buds", price: "85.20", oldPrice: "150.00", discount: "43", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" }
-  ];
+  const [tenant, setTenant] = useState('tenant-a');
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('https://codei9.shop/api/v1/commerce/products', {
+          headers: { 'X-Tenant-ID': tenant }
+        });
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        console.error("Failed to load products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, [tenant]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col max-w-md mx-auto shadow-2xl border-x border-gray-200">
-      <TopNav />
-      <CategorySlider categories={categories} />
+    <div className="min-h-screen bg-gray-50 pb-20">
+      <TopNav tenant={tenant} setTenant={setTenant} />
       
-      <main className="flex-1 overflow-y-auto">
-        <HeroBanner />
-        <TrustBar />
-        
-        <div className="p-4">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-black text-gray-800 flex items-center gap-2 italic">
-              ⚡ Lightning Deals
-            </h3>
-            <span className="text-xs text-gray-400 font-bold">Ends in 04:12:15</span>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-3">
-            {products.map((p, idx) => (
-              <ProductCard key={idx} item={p} />
-            ))}
-          </div>
+      <div className="m-4 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 p-6 flex justify-between items-center text-white overflow-hidden relative">
+        <div className="z-10">
+          <h2 className="text-5xl font-black italic leading-none">90%</h2>
+          <p className="font-bold text-lg mt-1">Holiday Blowout</p>
+          <button className="bg-white text-red-600 px-4 py-1 rounded-full text-[10px] font-black mt-2 uppercase tracking-tighter">
+            Shop Now &gt;
+          </button>
         </div>
-      </main>
+        <div className="text-6xl opacity-50 absolute -right-4 bottom-0 rotate-12">🎁</div>
+      </div>
 
-      {/* Bottom Tab Bar (Temu Style) */}
-      <div className="bg-white border-t px-6 py-3 flex justify-between items-center text-gray-400 sticky bottom-0 z-50">
-        <div className="text-orange-600 flex flex-col items-center gap-0.5"><span className="text-lg">🏠</span><span className="text-[10px] font-bold">Home</span></div>
-        <div className="flex flex-col items-center gap-0.5 hover:text-gray-600 cursor-pointer"><span className="text-lg">📂</span><span className="text-[10px] font-bold">Category</span></div>
-        <div className="flex flex-col items-center gap-0.5 hover:text-gray-600 cursor-pointer"><span className="text-lg">🎁</span><span className="text-[10px] font-bold">Offers</span></div>
-        <div className="flex flex-col items-center gap-0.5 hover:text-gray-600 cursor-pointer"><span className="text-lg">👤</span><span className="text-[10px] font-bold">You</span></div>
+      <div className="px-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="font-black text-gray-800 uppercase tracking-tight">Featured for {tenant.replace('-', ' ')}</h2>
+          <span className="text-xs text-blue-600 font-bold underline">See All</span>
+        </div>
+
+        {loading ? (
+          <div className="text-center py-10 text-gray-400 font-bold animate-pulse">Scanning Global Market...</div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3">
+            {products.map((p) => <ProductCard key={p.id} item={p} />)}
+          </div>
+        )}
       </div>
     </div>
   );
