@@ -15,8 +15,16 @@ public class ProductService {
     }
 
     public List<Product> getTenantProducts(String headerId) {
-        // We use the ID from the context to ensure security
         String activeTenant = TenantContext.getCurrentTenant();
-        return repository.findByTenantId(activeTenant != null ? activeTenant : headerId);
+        
+        // If NO tenant is found in Context OR Header, return ALL products (Global Mode)
+        if ((activeTenant == null || activeTenant.isEmpty()) && 
+            (headerId == null || headerId.isEmpty())) {
+            return repository.findAll();
+        }
+        
+        // Otherwise, filter by the detected tenant
+        String tenantToFilter = (activeTenant != null) ? activeTenant : headerId;
+        return repository.findByTenantId(tenantToFilter);
     }
 }
