@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temu Clone</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; text-align: center; padding: 0; margin: 0; }
+        .store-header { background: #ff4400; color: white; padding: 40px 20px; margin-bottom: 20px; }
+        .category-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 200px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        h3 { margin: 0; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="store-header">
+        <h1 id="storeName">Detecting Store...</h1>
+        <p>Your Personalized Multi-Tenant Experience</p>
+    </div>
+
+    <h2>Browse Categories</h2>
+    <div class="category-grid" id="categories"></div>
+
+    <script>
+        // Automatically get 'store' from the URL (e.g., ?store=tenant-a)
+        const params = new URLSearchParams(window.location.search);
+        const storeId = params.get('store') || 'tenant-a';
+        
+        document.getElementById('storeName').innerText = "Welcome to " + storeId.toUpperCase() + " Shop";
+
+        // Fetch data using the query param which our new Filter will catch
+        fetch(`/api/categories?store=${storeId}`)
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('categories');
+                if(data.length === 0) {
+                    container.innerHTML = "<p>No categories found for this store.</p>";
+                } else {
+                    container.innerHTML = data.map(c => 
+                        `<div class="card"><h3>${c.name}</h3></div>`
+                    ).join('');
+                }
+            })
+            .catch(err => {
+                document.getElementById('categories').innerHTML = "Error loading store data.";
+            });
+    </script>
+</body>
+</html>

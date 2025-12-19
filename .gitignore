@@ -1,0 +1,14 @@
+# Java
+**/target/
+**/*.class
+**/*.jar
+
+# Python
+**/venv/
+**/__pycache__/
+**/*.pyc
+
+# IDEs
+.idea/
+.vscode/
+*.swp
