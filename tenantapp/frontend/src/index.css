@@ -1,6 +1,63 @@
-@import "tailwindcss";
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #f9f9f9;
+  --accent-color: #ff5000; /* Chuck's Orange */
+  --border-color: #eeeeee;
+  --header-height: 60px;
+  --bottom-nav-height: 60px;
+  
+  /* Label & Deals specific */
+  --label-bg: #fffbf5;
+  --label-green: #2e7d32;
+  --text-muted: #666666;
+  --img-placeholder: #f0f0f0;
+  --progress-bg: #ffe0d3;
+  --btn-bg: #ffffff;
+}
 
-/* Test style to confirm CSS is loading at all */
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  
+  /* Dark mode overrides */
+  --label-bg: #1a1612;
+  --label-green: #4caf50;
+  --text-muted: #aaaaaa;
+  --img-placeholder: #2d2d2d;
+  --progress-bg: #3d2015;
+  --btn-bg: #333333;
+}
+
 body {
-  border-top: 5px solid red !important;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: 24px;
+  }
+}
+
+/* Scrollbar styling for horizontal sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
