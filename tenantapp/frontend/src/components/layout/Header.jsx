@@ -1,107 +1,77 @@
 import React from 'react';
 import { Search, Menu, Moon, Sun, ShoppingBag, ChevronLeft } from 'lucide-react';
 
-const Header = ({ darkMode, setDarkMode, onBack }) => {
-  const rowHeight = '36px';
-
+const Header = ({ darkMode, setDarkMode, onBack, isProductPage }) => {
   return (
     <header style={{
       backgroundColor: 'var(--bg-color)',
-      padding: '8px 12px',
+      padding: '0 12px',
       display: 'flex',
       alignItems: 'center',
       gap: '8px',
-      position: 'fixed',
+      /* Absolute for product page so it scrolls away; fixed for home */
+      position: isProductPage ? 'absolute' : 'fixed',
       top: 0,
       width: '100%',
       maxWidth: '600px',
+      height: '54px',
       zIndex: 1000,
-      borderBottom: '1px solid var(--border-color)',
-      boxSizing: 'border-box',
-      transition: 'background-color 0.3s ease'
+      borderBottom: isProductPage ? 'none' : '1px solid var(--border-color)',
+      boxSizing: 'border-box'
     }}>
-      {/* Back Arrow + Logo Container */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
-        {onBack && (
-          <div 
-            onClick={onBack}
-            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text-color)' }}
-          >
-            <ChevronLeft size={24} strokeWidth={2.5} />
+      {/* Left Section: Back Arrow or Menu + Logo */}
+      <div style={{ display: 'flex', alignItems: 'center', flexShrink: 0, gap: '4px' }}>
+        {onBack ? (
+          <div onClick={onBack} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text-color)' }}>
+            <ChevronLeft size={26} strokeWidth={2.5} />
           </div>
+        ) : (
+          <Menu size={20} style={{ color: 'var(--text-color)', marginRight: '4px' }} />
         )}
-        <div style={{
+        <div style={{ 
           color: 'var(--text-color)', 
-          fontSize: '1.1rem',
+          fontSize: '1.1rem', 
           fontWeight: '900',
-          height: rowHeight,
-          display: 'flex',
-          alignItems: 'center',
-          letterSpacing: '-0.5px'
+          letterSpacing: '-0.5px' 
         }}>
           CHUCKS
         </div>
       </div>
 
-      {/* Search Bar */}
-      <div style={{ flex: 1, height: rowHeight, display: 'flex' }}>
+      {/* Middle Section: Stretched Search Bar */}
+      <div style={{ flex: 1, height: '34px', display: 'flex', margin: '0 4px' }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
           backgroundColor: 'var(--card-bg)',
-          borderRadius: '18px',
-          padding: '0 12px',
+          borderRadius: '17px',
+          padding: '0 10px',
           border: '1px solid var(--border-color)',
-          width: '100%',
-          height: '100%',
-          boxSizing: 'border-box'
+          width: '100%'
         }}>
-          <Search size={16} style={{ color: 'var(--text-muted)', marginRight: '6px' }} />
-          <input
-            type="text"
-            placeholder="Search Chucks"
-            style={{
-              border: 'none',
-              background: 'transparent',
-              outline: 'none',
-              width: '100%',
-              fontSize: '0.85rem',
-              color: 'var(--text-color)'
-            }}
+          <Search size={14} style={{ color: 'var(--text-muted)', marginRight: '6px' }} />
+          <input 
+            type="text" 
+            placeholder="Search" 
+            style={{ 
+              border: 'none', 
+              background: 'transparent', 
+              outline: 'none', 
+              width: '100%', 
+              fontSize: '0.8rem', 
+              color: 'var(--text-color)' 
+            }} 
           />
         </div>
       </div>
 
-      {/* Icons */}
-      <div style={{ display: 'flex', gap: '4px', alignItems: 'center', height: rowHeight, flexShrink: 0 }}>
-        <div 
-          onClick={() => setDarkMode(!darkMode)}
-          style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text-color)' }}
-        >
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+      {/* Right Section: Theme Toggle & Cart */}
+      <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexShrink: 0 }}>
+        <div onClick={() => setDarkMode(!darkMode)} style={{ cursor: 'pointer', color: 'var(--text-color)' }}>
+          {darkMode ? <Sun size={18} /> : <Moon size={18} />}
         </div>
-
-        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', cursor: 'pointer', color: 'var(--text-color)' }}>
+        <div style={{ position: 'relative', color: 'var(--text-color)' }}>
           <ShoppingBag size={20} />
-          <span style={{
-            position: 'absolute',
-            top: '4px',
-            right: '0px',
-            backgroundColor: 'var(--text-color)',
-            color: 'var(--bg-color)',
-            fontSize: '0.6rem',
-            borderRadius: '50%',
-            width: '14px',
-            height: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            border: '1px solid var(--border-color)'
-          }}>0</span>
-        </div>
-        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text-color)' }}>
-          <Menu size={22} />
         </div>
       </div>
     </header>

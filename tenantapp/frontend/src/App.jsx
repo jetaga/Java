@@ -5,77 +5,95 @@ import CategoryBubbles from './components/layout/CategoryBubbles';
 import Hero from './components/layout/Hero';
 import LightningDeals from './components/layout/LightningDeals';
 import ProductCard from './components/products/ProductCard';
-import ProductDetail from './components/products/ProductDetail';
+import ProductDetail from './components/products/productshow/ProductDetail';
 import BottomNav from './components/layout/BottomNav';
 import HomeLabel from './components/Label/HomeLabel';
 import './index.css';
 
 function App() {
-  const [tenant, setTenant] = useState('tenant-a');
+  const [tenant] = useState('tenant-a');
   const [darkMode, setDarkMode] = useState(false);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
   const [activeProduct, setActiveProduct] = useState(null);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   const API_BASE = "http://157.250.198.22:9090/api/v1";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeProduct]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prodId = params.get('productId');
+    
+    if (prodId) {
+      fetch(`${API_BASE}/products/${prodId}`, { headers: { 'X-Tenant-ID': tenant } })
+        .then(r => r.json())
+        .then(data => {
+          setActiveProduct(data);
+          setIsInitialLoad(false);
+        })
+        .catch(() => setIsInitialLoad(false));
+    } else {
+      setIsInitialLoad(false);
+    }
+  }, []);
+
+  const handleSelectProduct = (product) => {
+    setActiveProduct(product);
+    const url = product ? `?productId=${product.id}` : window.location.pathname;
+    window.history.pushState({}, '', url);
+  };
 
   useEffect(() => {
     document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   useEffect(() => {
-    fetch(`${API_BASE}/categories/tree`).then(r => r.json()).then(setCategories).catch(e => console.error(e));
-  }, []);
-
-  useEffect(() => {
-    let url = `${API_BASE}/products`;
-    if (selectedCat) url += `?categoryId=${selectedCat}`;
-    fetch(url, { headers: { 'X-Tenant-ID': tenant } })
+    fetch(`${API_BASE}/categories/tree`).then(r => r.json()).then(setCategories);
+    fetch(`${API_BASE}/products`, { headers: { 'X-Tenant-ID': tenant } })
       .then(r => r.json())
-      .then(data => setProducts(Array.isArray(data) ? data : []))
-      .catch(e => console.error(e));
-  }, [tenant, selectedCat]);
+      .then(data => setProducts(Array.isArray(data) ? data : []));
+  }, [tenant]);
+
+  if (isInitialLoad) return <div style={{ background: 'var(--bg-color)', height: '100vh' }} />;
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh' }}>
-      {/* Header logic: If viewing product, we can pass a back action */}
+    <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh', position: 'relative' }}>
       <Header 
         darkMode={darkMode} 
         setDarkMode={setDarkMode} 
-        onBack={activeProduct ? () => setActiveProduct(null) : null}
+        onBack={activeProduct ? () => handleSelectProduct(null) : null}
+        isProductPage={!!activeProduct}
       />
       
+      {/* Spacer only exists on Home page now */}
+      {!activeProduct && <div style={{ height: '54px' }} />}
+
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         {activeProduct ? (
-          /* Pushed just enough for the Header height so image touches the bottom of header */
-          <div style={{ paddingTop: '60px', paddingBottom: '100px' }}>
-            <ProductDetail 
-              product={activeProduct} 
-              onBack={() => setActiveProduct(null)} 
-            />
-          </div>
+          <ProductDetail product={activeProduct} />
         ) : (
-          <div style={{ paddingBottom: '100px' }}>
+          <div style={{ paddingBottom: '80px' }}>
             <CategorySlider categories={categories} selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
             <Hero tenant={tenant} />
             <HomeLabel />
             <CategoryBubbles categories={categories} />
-            <LightningDeals products={products} onProductClick={(p) => setActiveProduct(p)} />
-            <div style={{ padding: '10px 10px 0 10px' }}>
-              <h3 style={{ margin: 0, fontSize: '1rem', color: 'var(--text-color)' }}>Recommended for you</h3>
-            </div>
+            <LightningDeals products={products} onProductClick={handleSelectProduct} />
             <main style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px' }}>
               {products.map(p => (
-                <div key={p.id} onClick={() => setActiveProduct(p)}>
-                  <ProductCard product={p} />
-                </div>
+                <div key={p.id} onClick={() => handleSelectProduct(p)}><ProductCard product={p} /></div>
               ))}
             </main>
           </div>
         )}
       </div>
-      <BottomNav />
+
+      {/* Hide BottomNav on product page */}
+      {!activeProduct && <BottomNav />}
     </div>
   );
 }
