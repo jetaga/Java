@@ -1,33 +1,42 @@
 package com.codei9.modules.commerce.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
+@Table(name = "category")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Category {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private Integer level;
 
-    @ManyToOne @JoinColumn(name = "parent_id")
-    @JsonIgnoreProperties("subCategories")
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
     private Category parent;
 
-    @OneToMany(mappedBy = "parent")
-    private List<Category> subCategories;
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    @JsonProperty("children")
+    private List<Category> subCategories = new ArrayList<>();
 
-    public Category() {}
-    public Category(String name, Integer level, Category parent) {
-        this.name = name;
-        this.level = level;
-        this.parent = parent;
-    }
-
+    // Getters and Setters
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
     public Integer getLevel() { return level; }
-    public Category getParent() { return parent; }
+    public void setLevel(Integer level) { this.level = level; }
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
     public List<Category> getSubCategories() { return subCategories; }
+    public void setSubCategories(List<Category> subCategories) { this.subCategories = subCategories; }
 }

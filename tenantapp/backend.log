@@ -1,3 +1,4 @@
+nohup: ignoring input
 [[1;34mINFO[m] Scanning for projects...
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m------------------------< [0;36mcom.codei9:tenantapp[0;1m >------------------------[m
@@ -11,29 +12,13 @@
 [[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mtenantapp[0;1m ---[m
-[[1;34mINFO[m] Changes detected - recompiling the module! :source
-[[1;34mINFO[m] Compiling 8 source files with javac [debug release 17] to target/classes
-[[1;34mINFO[m] Annotation processing is enabled because one or more processors were found
-  on the class path. A future release of javac may disable annotation processing
-  unless at least one processor is specified by name (-processor), or a search
-  path is specified (--processor-path, --processor-module-path), or annotation
-  processing is enabled explicitly (-proc:only, -proc:full).
-  Use -Xlint:-options to suppress this message.
-  Use -proc:none to disable annotation processing.
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:testResources[m [1m(default-testResources)[m @ [36mtenantapp[0;1m ---[m
 [[1;34mINFO[m] skip non existing resourceDirectory /root/java-multi-tenant/tenantapp/src/test/resources
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mtenantapp[0;1m ---[m
-[[1;34mINFO[m] Changes detected - recompiling the module! :dependency
-[[1;34mINFO[m] Compiling 1 source file with javac [debug release 17] to target/test-classes
-[[1;34mINFO[m] Annotation processing is enabled because one or more processors were found
-  on the class path. A future release of javac may disable annotation processing
-  unless at least one processor is specified by name (-processor), or a search
-  path is specified (--processor-path, --processor-module-path), or annotation
-  processing is enabled explicitly (-proc:only, -proc:full).
-  Use -Xlint:-options to suppress this message.
-  Use -proc:none to disable annotation processing.
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m<<< [0;32mspring-boot-maven-plugin:3.1.5:run[m [1m(default-cli)[0;1m < [0;1mtest-compile[m @ [36mtenantapp[0;1m <<<[m
 [[1;34mINFO[m] 
@@ -49,44 +34,555 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.5)
 
-2025-12-19T04:31:12.795Z  INFO 398896 --- [           main] com.codei9.TenantAppApplication          : Starting TenantAppApplication using Java 21.0.9 with PID 398896 (/root/java-multi-tenant/tenantapp/target/classes started by root in /root/java-multi-tenant/tenantapp)
-2025-12-19T04:31:12.800Z  INFO 398896 --- [           main] com.codei9.TenantAppApplication          : No active profile set, falling back to 1 default profile: "default"
-2025-12-19T04:31:13.677Z  INFO 398896 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-19T04:31:13.749Z  INFO 398896 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 1 JPA repository interfaces.
-2025-12-19T04:31:14.542Z  INFO 398896 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2025-12-19T04:31:14.556Z  INFO 398896 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-19T04:31:14.557Z  INFO 398896 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2025-12-19T04:31:14.673Z  INFO 398896 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-12-19T04:31:14.675Z  INFO 398896 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1779 ms
-2025-12-19T04:31:14.902Z  INFO 398896 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-19T04:31:14.992Z  INFO 398896 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2025-12-19T04:31:14.996Z  INFO 398896 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2025-12-19T04:31:15.311Z  INFO 398896 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-19T04:31:15.345Z  INFO 398896 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-19T04:31:15.894Z  INFO 398896 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fe04f2a
-2025-12-19T04:31:15.896Z  INFO 398896 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-19T04:31:15.942Z  WARN 398896 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-19T04:31:17.067Z  INFO 398896 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-19T04:31:17.136Z  INFO 398896 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-19T04:31:17.636Z  WARN 398896 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-19T04:31:17.837Z  INFO 398896 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2025-12-19T04:31:18.096Z  INFO 398896 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
-2025-12-19T04:31:18.104Z  INFO 398896 --- [           main] com.codei9.TenantAppApplication          : Started TenantAppApplication in 5.915 seconds (process running for 6.455)
-Hibernate: select p1_0.id,p1_0.category,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0
-Hibernate: delete from product where id=?
-Hibernate: delete from product where id=?
-Hibernate: delete from product where id=?
-Hibernate: delete from product where id=?
-Hibernate: insert into product (category,name,price,tenant_id) values (?,?,?,?)
-Hibernate: insert into product (category,name,price,tenant_id) values (?,?,?,?)
-Hibernate: insert into product (category,name,price,tenant_id) values (?,?,?,?)
-Hibernate: insert into product (category,name,price,tenant_id) values (?,?,?,?)
---- CODEI9 MULTI-TENANT DATA LOADED ---
+2025-12-20T18:43:03.044Z  INFO 439377 --- [           main] com.codei9.TenantAppApplication          : Starting TenantAppApplication using Java 21.0.9 with PID 439377 (/root/java-multi-tenant/tenantapp/target/classes started by root in /root/java-multi-tenant/tenantapp)
+2025-12-20T18:43:03.049Z  INFO 439377 --- [           main] com.codei9.TenantAppApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-12-20T18:43:03.953Z  INFO 439377 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-20T18:43:04.032Z  INFO 439377 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 2 JPA repository interfaces.
+2025-12-20T18:43:04.857Z  INFO 439377 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2025-12-20T18:43:04.878Z  INFO 439377 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-20T18:43:04.880Z  INFO 439377 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-12-20T18:43:05.088Z  INFO 439377 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-20T18:43:05.092Z  INFO 439377 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1945 ms
+2025-12-20T18:43:05.389Z  INFO 439377 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-20T18:43:05.501Z  INFO 439377 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-12-20T18:43:05.504Z  INFO 439377 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-12-20T18:43:05.860Z  INFO 439377 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-20T18:43:05.896Z  INFO 439377 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-20T18:43:06.403Z  INFO 439377 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@161d95c6
+2025-12-20T18:43:06.405Z  INFO 439377 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-20T18:43:06.449Z  WARN 439377 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-20T18:43:07.802Z  INFO 439377 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-20T18:43:07.948Z  INFO 439377 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-20T18:43:08.602Z  WARN 439377 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-20T18:43:08.929Z  INFO 439377 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-12-20T18:43:09.210Z  INFO 439377 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2025-12-20T18:43:09.220Z  INFO 439377 --- [           main] com.codei9.TenantAppApplication          : Started TenantAppApplication in 6.74 seconds (process running for 7.329)
+2025-12-20T18:44:29.077Z  INFO 439377 --- [nio-9090-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-20T18:44:29.078Z  INFO 439377 --- [nio-9090-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-20T18:44:29.084Z  INFO 439377 --- [nio-9090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select p1_0.id,p1_0.category_id,p1_0.image_url,p1_0.name,p1_0.price,p1_0.tenant_id from product p1_0 where p1_0.tenant_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.image_url,c1_0.level,c1_0.name,c1_0.parent_id from category c1_0 where c1_0.id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
+Hibernate: select s1_0.parent_id,s1_0.id,s1_0.image_url,s1_0.level,s1_0.name from category s1_0 where s1_0.parent_id=?
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] [1;31mBUILD FAILURE[m
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  01:04 min
-[[1;34mINFO[m] Finished at: 2025-12-19T04:32:10Z
+[[1;34mINFO[m] Total time:  25:34 min
+[[1;34mINFO[m] Finished at: 2025-12-20T19:08:33Z
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;31mERROR[m] Failed to execute goal [32morg.springframework.boot:spring-boot-maven-plugin:3.1.5:run[m [1m(default-cli)[m on project [36mtenantapp[m: [1;31mProcess terminated with exit code: 137[m -> [1m[Help 1][m
 [[1;31mERROR[m] 
