@@ -18,7 +18,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
-  const [filterId, setFilterId] = useState(null);
+  const [filterId, setFilterId] = useState(null); 
 
   const API_BASE = "http://157.250.198.22:9090/api/v1";
 
@@ -27,44 +27,31 @@ function App() {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
-  // Load Categories
   useEffect(() => {
-    fetch(`${API_BASE}/categories/tree`)
-      .then(res => res.json())
-      .then(setCategories);
+    fetch(`${API_BASE}/categories/tree`).then(r => r.json()).then(setCategories);
   }, []);
 
-  // Load Products - Using the specific CategoryPage logic
   useEffect(() => {
-    const url = filterId 
-      ? `${API_BASE}/products?categoryId=${filterId}` 
-      : `${API_BASE}/products`;
-
-    fetch(url, { 
-      headers: { 'X-TenantID': 'tenant-a' } 
-    })
-    .then(res => res.json())
-    .then(data => setProducts(Array.isArray(data) ? data : []));
+    const url = filterId ? `${API_BASE}/products?categoryId=${filterId}` : `${API_BASE}/products`;
+    fetch(url, { headers: { 'X-TenantID': 'tenant-a' } })
+      .then(r => r.json())
+      .then(data => setProducts(Array.isArray(data) ? data : []));
   }, [filterId]);
 
-  const handleSelectProduct = (product) => {
-    setActiveProduct(product);
-    setIsCategoryView(false);
-  };
+  // If filterId is null, show top-level categories in bubbles.
+  // If filterId is set, show children of that category in bubbles.
+  const bubbleData = filterId 
+    ? (categories.find(c => c.id === filterId)?.children || [])
+    : categories;
 
-  const subCategories = filterId 
-    ? categories.find(c => c.id === filterId)?.children || []
-    : [];
+  const handleSelectProduct = (p) => setActiveProduct(p);
 
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh', color: 'var(--text-color)' }}>
       <Header 
-        darkMode={darkMode} 
-        setDarkMode={setDarkMode} 
+        darkMode={darkMode} setDarkMode={setDarkMode} 
         onBack={activeProduct || isCategoryView || filterId ? () => { 
-          setActiveProduct(null); 
-          setIsCategoryView(false); 
-          setFilterId(null); 
+          setActiveProduct(null); setIsCategoryView(false); setFilterId(null); 
         } : null}
         onMenuClick={() => setIsCategoryView(!isCategoryView)}
         isProductPage={!!activeProduct}
@@ -78,29 +65,29 @@ function App() {
         <CategoryPage onProductClick={handleSelectProduct} />
       ) : (
         <div style={{ paddingBottom: '80px', maxWidth: '600px', margin: '0 auto' }}>
+          
           <CategorySlider 
             categories={categories} 
             activeFilterId={filterId} 
-            onCategoryClick={(id) => setFilterId(id)} 
+            onCategoryClick={setFilterId} 
           />
           
           {!filterId && <Hero tenant={tenant} />}
-
-          {subCategories.length > 0 && (
-            <CategoryBubbles 
-              categories={subCategories} 
-              onCategoryClick={(id) => setFilterId(id)} 
-            />
-          )}
-
           {!filterId && <LightningDeals products={products} onProductClick={handleSelectProduct} />}
 
-          <HomeLabel title={filterId ? categories.find(c => c.id === filterId)?.name : "Recommended"} />
+          {/* BUBBLES ARE NOW ALWAYS HERE */}
+          <div style={{ padding: '15px 0', background: 'var(--card-bg)', marginBottom: '10px' }}>
+             <CategoryBubbles 
+                categories={bubbleData} 
+                onCategoryClick={(id) => setFilterId(id)} 
+             />
+          </div>
+
+          <HomeLabel title={filterId ? categories.find(c => c.id === filterId)?.name : "Recommended For You"} />
           
           <main className="product-grid">
             {products.map(p => (
               <div key={p.id} onClick={() => handleSelectProduct(p)}>
-                {/* Ensure ProductCard uses p.imageUrl directly */}
                 <ProductCard product={p} />
               </div>
             ))}
