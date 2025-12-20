@@ -1,8 +1,8 @@
 import React from 'react';
+import { Search, Menu, Moon, Sun, ShoppingBag, ChevronLeft } from 'lucide-react';
 
-const Header = ({ darkMode, setDarkMode }) => {
-  // We lock everything to exactly 36px to match Temu's compact look
-  const rowHeight = '36px'; 
+const Header = ({ darkMode, setDarkMode, onBack }) => {
+  const rowHeight = '36px';
 
   return (
     <header style={{
@@ -11,97 +11,97 @@ const Header = ({ darkMode, setDarkMode }) => {
       display: 'flex',
       alignItems: 'center',
       gap: '8px',
-      position: 'sticky',
+      position: 'fixed',
       top: 0,
+      width: '100%',
+      maxWidth: '600px',
       zIndex: 1000,
       borderBottom: '1px solid var(--border-color)',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      transition: 'background-color 0.3s ease'
     }}>
-      {/* 1. Logo - Locked Height */}
-      <div style={{ 
-        color: '#ff5000', 
-        fontSize: '1.1rem', 
-        fontWeight: '900', 
-        height: rowHeight,
-        display: 'flex',
-        alignItems: 'center',
-        flexShrink: 0,
-        lineHeight: 1
-      }}>
-        CHUCKS
+      {/* Back Arrow + Logo Container */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+        {onBack && (
+          <div 
+            onClick={onBack}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text-color)' }}
+          >
+            <ChevronLeft size={24} strokeWidth={2.5} />
+          </div>
+        )}
+        <div style={{
+          color: 'var(--text-color)', 
+          fontSize: '1.1rem',
+          fontWeight: '900',
+          height: rowHeight,
+          display: 'flex',
+          alignItems: 'center',
+          letterSpacing: '-0.5px'
+        }}>
+          CHUCKS
+        </div>
       </div>
 
-      {/* 2. Search Bar - Locked Height */}
-      <div style={{ 
-        flex: 1, 
-        height: rowHeight,
-        display: 'flex' 
-      }}>
+      {/* Search Bar */}
+      <div style={{ flex: 1, height: rowHeight, display: 'flex' }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
           backgroundColor: 'var(--card-bg)',
-          borderRadius: '18px', // Half of 36px for perfect pill shape
+          borderRadius: '18px',
           padding: '0 12px',
           border: '1px solid var(--border-color)',
           width: '100%',
           height: '100%',
           boxSizing: 'border-box'
         }}>
-          <span style={{ fontSize: '0.9rem', opacity: 0.5, marginRight: '6px' }}>🔍</span>
-          <input 
-            type="text" 
-            placeholder="Search Chucks" 
+          <Search size={16} style={{ color: 'var(--text-muted)', marginRight: '6px' }} />
+          <input
+            type="text"
+            placeholder="Search Chucks"
             style={{
               border: 'none',
               background: 'transparent',
               outline: 'none',
               width: '100%',
               fontSize: '0.85rem',
-              color: 'var(--text-color)',
-              height: '20px', // Smaller than container to avoid stretching
-              lineHeight: '20px'
+              color: 'var(--text-color)'
             }}
           />
         </div>
       </div>
 
-      {/* 3. Icons - Locked Height & Width for symmetry */}
-      <div style={{ 
-        display: 'flex', 
-        gap: '4px', 
-        alignItems: 'center',
-        height: rowHeight,
-        flexShrink: 0 
-      }}>
-        {/* Menu Icon */}
-        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', cursor: 'pointer' }}>
-          ≡
-        </div>
-        
-        {/* Dark Mode Toggle */}
+      {/* Icons */}
+      <div style={{ display: 'flex', gap: '4px', alignItems: 'center', height: rowHeight, flexShrink: 0 }}>
         <div 
           onClick={() => setDarkMode(!darkMode)}
-          style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', cursor: 'pointer' }}
+          style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text-color)' }}
         >
-          {darkMode ? '☀️' : '🌙'}
+          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
         </div>
 
-        {/* Cart Icon */}
-        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', cursor: 'pointer', position: 'relative' }}>
-          🛒
+        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', cursor: 'pointer', color: 'var(--text-color)' }}>
+          <ShoppingBag size={20} />
           <span style={{
             position: 'absolute',
-            top: '2px',
+            top: '4px',
             right: '0px',
-            backgroundColor: '#ff5000',
-            color: 'white',
+            backgroundColor: 'var(--text-color)',
+            color: 'var(--bg-color)',
             fontSize: '0.6rem',
             borderRadius: '50%',
-            padding: '1px 4px',
+            width: '14px',
+            height: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             fontWeight: 'bold',
-            lineHeight: 1
+            border: '1px solid var(--border-color)'
           }}>0</span>
+        </div>
+        <div style={{ width: '32px', height: rowHeight, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text-color)' }}>
+          <Menu size={22} />
         </div>
       </div>
     </header>
