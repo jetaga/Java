@@ -1,120 +1,121 @@
 import React from 'react';
+import { Zap } from 'lucide-react';
 
-const LightningDeals = ({ products = [] }) => {
-  if (!products || products.length === 0) return null;
+const LightningDeals = ({ products }) => {
+  const accentColor = '#FF9500'; 
 
   return (
-    <div style={{
-      padding: '16px',
-      backgroundColor: 'var(--card-bg, #fff)',
-      margin: '12px 0',
-      borderRadius: '16px',
-      border: '1px solid var(--border-color, transparent)',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-    }}>
+    <div style={{ padding: '15px 0', backgroundColor: 'var(--bg-color)' }}>
       {/* Header Section */}
       <div style={{ 
         display: 'flex', 
-        justifyContent: 'space-between', 
         alignItems: 'center', 
-        marginBottom: '14px' 
+        justifyContent: 'space-between',
+        marginBottom: '15px',
+        padding: '0 15px'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ fontSize: '1.4rem' }}>⚡</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <Zap size={20} fill={accentColor} stroke={accentColor} />
           <h2 style={{ 
-            color: '#e11d48', 
             fontSize: '1.1rem', 
             fontWeight: '900', 
-            margin: 0,
-            letterSpacing: '-0.5px'
+            textTransform: 'uppercase',
+            color: accentColor,
+            margin: 0
           }}>
-            LIGHTNING DEALS
+            Lightning Deals
           </h2>
         </div>
         
-        {/* Timer Box - Darker red in dark mode for better contrast */}
         <div style={{ 
-          backgroundColor: 'rgba(225, 29, 72, 0.1)', 
-          color: '#e11d48', 
-          padding: '4px 10px', 
-          borderRadius: '6px', 
-          fontSize: '0.8rem', 
-          fontWeight: 'bold',
-          fontFamily: 'monospace'
+          backgroundColor: accentColor, 
+          color: '#fff',
+          padding: '4px 10px',
+          borderRadius: '6px',
+          fontSize: '0.8rem',
+          fontWeight: '800'
         }}>
-          02:45:12
+          00:24:59
         </div>
       </div>
-      
-      {/* Horizontal Scroll Area */}
-      <div style={{ 
+
+      {/* Product Horizontal Scroll */}
+      <div className="no-scrollbar" style={{ 
         display: 'flex', 
         overflowX: 'auto', 
-        gap: '14px', 
-        paddingBottom: '8px',
-        scrollbarWidth: 'none', // Hide scrollbar for Firefox
-        msOverflowStyle: 'none' // Hide scrollbar for IE/Edge
+        gap: '12px',
+        padding: '0 15px'
       }}>
-        {products.map(product => (
-          <div key={product.id} style={{ minWidth: '115px', width: '115px' }}>
-            <div style={{ 
-              width: '115px', 
-              height: '115px', 
-              borderRadius: '10px', 
-              backgroundColor: 'var(--img-placeholder, #f5f5f5)', 
-              overflow: 'hidden',
-              border: '1px solid var(--border-color, #f0f0f0)'
+        {products?.map((product) => {
+          // Calculate discount safely
+          const discount = product.old_price > product.price 
+            ? Math.round(((product.old_price - product.price) / product.old_price) * 100) 
+            : 0;
+
+          return (
+            <div key={product.id} style={{ 
+              flex: '0 0 140px',
+              backgroundColor: 'var(--card-bg)',
+              borderRadius: '12px',
+              border: '1px solid var(--border-color)',
+              overflow: 'hidden'
             }}>
-              <img 
-                src={product.imageUrl} 
-                alt={product.name}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/150?text=Hot+Deal'; }}
-              />
-            </div>
-            
-            <div style={{ marginTop: '8px' }}>
-              <div style={{ 
-                color: '#ff5000', 
-                fontWeight: '900', 
-                fontSize: '1.1rem',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
-                <span style={{fontSize: '0.7rem', marginRight: '2px'}}>GH₵</span>
-                {Number(product.price).toFixed(0)}
+              {/* Image Container */}
+              <div style={{ position: 'relative', height: '140px', backgroundColor: '#f0f0f0' }}>
+                <img 
+                  src={product.image_url || product.image || 'https://via.placeholder.com/140'} 
+                  alt={product.name} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+                {discount > 0 && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '8px',
+                    left: '8px',
+                    backgroundColor: 'var(--text-color)',
+                    color: 'var(--bg-color)',
+                    fontSize: '0.65rem',
+                    fontWeight: '900',
+                    padding: '2px 6px',
+                    borderRadius: '4px'
+                  }}>
+                    -{discount}%
+                  </div>
+                )}
               </div>
               
-              {/* Progress Bar Container */}
-              <div style={{ 
-                height: '6px', 
-                width: '100%', 
-                backgroundColor: 'var(--progress-bg, #ffe0d3)', 
-                borderRadius: '10px', 
-                marginTop: '6px',
-                position: 'relative',
-                overflow: 'hidden'
-              }}>
+              {/* Content Container */}
+              <div style={{ padding: '10px' }}>
                 <div style={{ 
-                  width: '75%', 
-                  height: '100%', 
-                  background: 'linear-gradient(90deg, #ff8a00, #e11d48)', 
-                  borderRadius: '10px' 
-                }} />
-              </div>
-              
-              <div style={{ 
-                fontSize: '0.65rem', 
-                color: 'var(--text-muted, #999)', 
-                marginTop: '4px',
-                fontWeight: '600'
-              }}>
-                85% claimed
+                  fontSize: '0.75rem', 
+                  fontWeight: '600', 
+                  color: 'var(--text-color)',
+                  whiteSpace: 'nowrap', 
+                  overflow: 'hidden', 
+                  textOverflow: 'ellipsis',
+                  marginBottom: '4px'
+                }}>
+                  {product.name}
+                </div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontWeight: '900', fontSize: '1rem', color: 'var(--text-color)' }}>
+                    ${product.price}
+                  </span>
+                  {product.old_price > product.price && (
+                    <span style={{ 
+                      fontSize: '0.7rem', 
+                      textDecoration: 'line-through', 
+                      color: 'var(--text-muted)' 
+                    }}>
+                      ${product.old_price}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

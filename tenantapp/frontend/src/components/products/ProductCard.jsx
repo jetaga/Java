@@ -1,91 +1,76 @@
 import React from 'react';
+import { ShoppingCart, Plus } from 'lucide-react';
 
-const ProductCard = ({ product, layout = 'standard' }) => {
-  const isPortrait = layout === 'portrait';
-  
+const ProductCard = ({ product }) => {
+  // Support all Java field name variants
+  const imgPath = product.imageUrl || product.image_url || product.image;
+
   return (
     <div style={{
-      backgroundColor: 'var(--card-bg)',
+      backgroundColor: 'var(--bg-color)',
       borderRadius: '12px',
       overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
       border: '1px solid var(--border-color)',
       position: 'relative',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-      height: '100%'
+      width: '100%',
+      marginBottom: '10px'
     }}>
-      {/* FIXED: Using img tag instead of raw text */}
+      {/* Fixed Ratio Image Container */}
       <div style={{
         width: '100%',
-        aspectRatio: isPortrait ? '3/4' : '1/1',
-        backgroundColor: '#f0f0f0',
+        aspectRatio: '1 / 1.1', 
+        backgroundColor: '#f8f8f8',
         overflow: 'hidden'
       }}>
         <img 
-          src={product.imageUrl} 
+          src={imgPath} 
           alt={product.name}
           style={{
             width: '100%',
             height: '100%',
-            objectFit: "cover",
-            display: 'block'
+            objectFit: 'cover'
           }}
           onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/400';
+            e.target.src = 'https://via.placeholder.com/400x500?text=No+Image';
           }}
         />
       </div>
 
       <div style={{ padding: '10px' }}>
         <div style={{
-          fontSize: '0.85rem',
+          fontSize: '0.8rem',
           color: 'var(--text-color)',
-          height: '38px',
+          height: '34px',
           overflow: 'hidden',
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
-          lineHeight: '1.3',
+          lineHeight: '1.2',
           fontWeight: '500'
         }}>
           {product.name}
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'baseline', marginTop: '6px', gap: '5px' }}>
-          <span style={{ color: '#ff5000', fontWeight: '900', fontSize: '1.2rem' }}>
+        <div style={{ marginTop: '6px' }}>
+          <span style={{ color: 'var(--text-color)', fontWeight: '900', fontSize: '1.1rem' }}>
             GH₵{Number(product.price).toFixed(2)}
           </span>
-          <span style={{ fontSize: '0.75rem', color: '#999', textDecoration: 'line-through' }}>
-            GH₵{(Number(product.price) * 1.4).toFixed(2)}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
+          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+             {product.id + 10} sold
           </span>
-        </div>
 
-        <div style={{ fontSize: '0.7rem', color: '#ff5000', fontWeight: '600', marginTop: '4px' }}>
-           🔥 {Math.floor(Math.random() * 500) + 100}+ sold
+          <div style={{ display: 'flex', alignItems: 'center', color: 'var(--text-color)' }}>
+            <div style={{ position: 'relative' }}>
+                <ShoppingCart size={16} />
+                <Plus size={8} style={{ position: 'absolute', top: '-4px', right: '-4px' }} />
+            </div>
+          </div>
         </div>
-        
-        <div style={{ fontSize: '0.65rem', color: '#28a745', marginTop: '2px' }}>
-          Free shipping
-        </div>
-
-        <button style={{
-          position: 'absolute',
-          bottom: '10px',
-          right: '10px',
-          background: 'white',
-          border: '1px solid #eee',
-          borderRadius: '50%',
-          width: '32px',
-          height: '32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          🛒
-        </button>
       </div>
     </div>
   );

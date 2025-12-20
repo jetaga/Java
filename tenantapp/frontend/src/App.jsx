@@ -6,50 +6,26 @@ import Hero from './components/layout/Hero';
 import LightningDeals from './components/layout/LightningDeals';
 import ProductCard from './components/products/ProductCard';
 import ProductDetail from './components/products/productshow/ProductDetail';
+import CategoryPage from './components/layout/CategoryPage';
 import BottomNav from './components/layout/BottomNav';
 import HomeLabel from './components/Label/HomeLabel';
 import './index.css';
 
 function App() {
   const [tenant] = useState('tenant-a');
-  const [darkMode, setDarkMode] = useState(false);
+  // Initialize theme from localStorage
+  const [darkMode, setDarkMode] = useState(localStorage.getItem('theme') === 'dark');
+  const [isCategoryView, setIsCategoryView] = useState(false);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-  const [selectedCat, setSelectedCat] = useState(null);
   const [activeProduct, setActiveProduct] = useState(null);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   const API_BASE = "http://157.250.198.22:9090/api/v1";
 
+  // Global Theme Effect
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activeProduct]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const prodId = params.get('productId');
-    
-    if (prodId) {
-      fetch(`${API_BASE}/products/${prodId}`, { headers: { 'X-Tenant-ID': tenant } })
-        .then(r => r.json())
-        .then(data => {
-          setActiveProduct(data);
-          setIsInitialLoad(false);
-        })
-        .catch(() => setIsInitialLoad(false));
-    } else {
-      setIsInitialLoad(false);
-    }
-  }, []);
-
-  const handleSelectProduct = (product) => {
-    setActiveProduct(product);
-    const url = product ? `?productId=${product.id}` : window.location.pathname;
-    window.history.pushState({}, '', url);
-  };
-
-  useEffect(() => {
-    document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   useEffect(() => {
@@ -59,41 +35,53 @@ function App() {
       .then(data => setProducts(Array.isArray(data) ? data : []));
   }, [tenant]);
 
-  if (isInitialLoad) return <div style={{ background: 'var(--bg-color)', height: '100vh' }} />;
+  const handleSelectProduct = (product) => {
+    setActiveProduct(product);
+    setIsCategoryView(false);
+  };
+
+  // Hide BottomNav if Product is open OR Category Menu is open
+  const hideBottomNav = !!activeProduct || isCategoryView;
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh', position: 'relative' }}>
+    <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh', color: 'var(--text-color)' }}>
       <Header 
         darkMode={darkMode} 
         setDarkMode={setDarkMode} 
-        onBack={activeProduct ? () => handleSelectProduct(null) : null}
+        onBack={activeProduct || isCategoryView ? () => { setActiveProduct(null); setIsCategoryView(false); } : null}
+        onMenuClick={() => setIsCategoryView(!isCategoryView)}
         isProductPage={!!activeProduct}
       />
       
-      {/* Spacer only exists on Home page now */}
+      {/* Spacer for Fixed Header */}
       {!activeProduct && <div style={{ height: '54px' }} />}
 
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-        {activeProduct ? (
-          <ProductDetail product={activeProduct} />
-        ) : (
-          <div style={{ paddingBottom: '80px' }}>
-            <CategorySlider categories={categories} selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
-            <Hero tenant={tenant} />
-            <HomeLabel />
-            <CategoryBubbles categories={categories} />
-            <LightningDeals products={products} onProductClick={handleSelectProduct} />
-            <main style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px' }}>
-              {products.map(p => (
-                <div key={p.id} onClick={() => handleSelectProduct(p)}><ProductCard product={p} /></div>
-              ))}
-            </main>
-          </div>
-        )}
-      </div>
+      {activeProduct ? (
+        <ProductDetail product={activeProduct} />
+      ) : isCategoryView ? (
+        <CategoryPage 
+           darkMode={darkMode} 
+           setDarkMode={setDarkMode} 
+           onProductClick={handleSelectProduct} 
+        />
+      ) : (
+        <div style={{ paddingBottom: '80px', maxWidth: '600px', margin: '0 auto' }}>
+          <CategorySlider categories={categories} />
+          <Hero tenant={tenant} />
+          <HomeLabel />
+          <CategoryBubbles categories={categories} />
+          <LightningDeals products={products} onProductClick={handleSelectProduct} />
+          <main className="product-grid">
+            {products.map(p => (
+              <div key={p.id} onClick={() => handleSelectProduct(p)}>
+                <ProductCard product={p} />
+              </div>
+            ))}
+          </main>
+        </div>
+      )}
 
-      {/* Hide BottomNav on product page */}
-      {!activeProduct && <BottomNav />}
+      {!hideBottomNav && <BottomNav />}
     </div>
   );
 }
