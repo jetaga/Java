@@ -1,52 +1,26 @@
 import React from 'react';
 
-const CategorySlider = ({ categories, selectedCat, setSelectedCat }) => {
+const CategorySlider = ({ categories, onCategoryClick, activeFilterId }) => {
   return (
-    <div style={{
-      display: 'flex',
-      overflowX: 'auto',
-      whiteSpace: 'nowrap',
-      padding: '12px 15px 8px 15px', // Increased top padding to move items down
-      backgroundColor: 'var(--bg-color)',
-      scrollbarWidth: 'none',
-      msOverflowStyle: 'none',
-      gap: '20px',
-      borderBottom: '1px solid var(--border-color)' // Keeping only the main bottom divider
+    <div className="no-scrollbar" style={{ 
+      display: 'flex', overflowX: 'auto', padding: '12px 10px', gap: '20px',
+      backgroundColor: 'var(--bg-color)', borderBottom: '1px solid var(--border-color)'
     }}>
-      <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-      
-      <div
-        onClick={() => setSelectedCat(null)}
-        style={{
-          fontWeight: 'bold',
-          fontSize: '0.95rem',
-          color: !selectedCat ? 'var(--text-color)' : '#888',
-          borderBottom: 'none', // REMOVED the white/moving line
-          cursor: 'pointer',
-          transition: '0.2s'
-        }}
-      >
-        All
-      </div>
-
+      <div onClick={() => onCategoryClick(null)} style={{
+        cursor: 'pointer', fontSize: '14px', whiteSpace: 'nowrap',
+        fontWeight: !activeFilterId ? 'bold' : '500',
+        color: !activeFilterId ? 'var(--text-color)' : 'var(--text-muted)',
+        borderBottom: !activeFilterId ? '2px solid var(--text-color)' : '2px solid transparent'
+      }}>Men</div>
       {categories.map(cat => (
-        <div
-          key={cat.id}
-          onClick={() => setSelectedCat(cat.id)}
-          style={{
-            fontWeight: selectedCat === cat.id ? 'bold' : 'normal',
-            fontSize: '0.95rem',
-            color: selectedCat === cat.id ? 'var(--accent-color, var(--text-color))' : '#888',
-            borderBottom: 'none', // REMOVED the white/moving line
-            cursor: 'pointer',
-            transition: '0.2s'
-          }}
-        >
-          {cat.name}
-        </div>
+        <div key={cat.id} onClick={() => onCategoryClick(cat.id)} style={{
+          cursor: 'pointer', fontSize: '14px', whiteSpace: 'nowrap',
+          fontWeight: activeFilterId === cat.id ? 'bold' : '500',
+          color: activeFilterId === cat.id ? 'var(--text-color)' : 'var(--text-muted)',
+          borderBottom: activeFilterId === cat.id ? '2px solid var(--text-color)' : '2px solid transparent'
+        }}>{cat.name}</div>
       ))}
     </div>
   );
 };
-
 export default CategorySlider;
