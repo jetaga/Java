@@ -18,8 +18,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
-  const [filterId, setFilterId] = useState(null); 
-
+  const [filterId, setFilterId] = useState(null);
   const API_BASE = "http://157.250.198.22:9090/api/v1";
 
   useEffect(() => {
@@ -38,53 +37,62 @@ function App() {
       .then(data => setProducts(Array.isArray(data) ? data : []));
   }, [filterId]);
 
-  // If filterId is null, show top-level categories in bubbles.
-  // If filterId is set, show children of that category in bubbles.
-  const bubbleData = filterId 
+  const bubbleData = filterId
     ? (categories.find(c => c.id === filterId)?.children || [])
     : categories;
 
-  const handleSelectProduct = (p) => setActiveProduct(p);
+  // FIXED: Added window.scrollTo to ensure product page starts at the top
+  const handleSelectProduct = (p) => {
+    setActiveProduct(p);
+    window.scrollTo(0, 0);
+  };
+
+  const handleBack = () => {
+    setActiveProduct(null);
+    setIsCategoryView(false);
+    setFilterId(null);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', minHeight: '100vh', color: 'var(--text-color)' }}>
-      <Header 
-        darkMode={darkMode} setDarkMode={setDarkMode} 
-        onBack={activeProduct || isCategoryView || filterId ? () => { 
-          setActiveProduct(null); setIsCategoryView(false); setFilterId(null); 
-        } : null}
-        onMenuClick={() => setIsCategoryView(!isCategoryView)}
+      <Header
+        darkMode={darkMode} setDarkMode={setDarkMode}
+        onBack={activeProduct || isCategoryView || filterId ? handleBack : null}
+        onMenuClick={() => {
+          setIsCategoryView(!isCategoryView);
+          window.scrollTo(0, 0);
+        }}
         isProductPage={!!activeProduct}
       />
-      
       {!activeProduct && <div style={{ height: '54px' }} />}
-
       {activeProduct ? (
         <ProductDetail product={activeProduct} />
       ) : isCategoryView ? (
         <CategoryPage onProductClick={handleSelectProduct} />
       ) : (
         <div style={{ paddingBottom: '80px', maxWidth: '600px', margin: '0 auto' }}>
-          
-          <CategorySlider 
-            categories={categories} 
-            activeFilterId={filterId} 
-            onCategoryClick={setFilterId} 
+          <CategorySlider
+            categories={categories}
+            activeFilterId={filterId}
+            onCategoryClick={(id) => {
+              setFilterId(id);
+              window.scrollTo(0, 0);
+            }}
           />
-          
           {!filterId && <Hero tenant={tenant} />}
           {!filterId && <LightningDeals products={products} onProductClick={handleSelectProduct} />}
-
-          {/* BUBBLES ARE NOW ALWAYS HERE */}
+          
           <div style={{ padding: '15px 0', background: 'var(--card-bg)', marginBottom: '10px' }}>
-             <CategoryBubbles 
-                categories={bubbleData} 
-                onCategoryClick={(id) => setFilterId(id)} 
+             <CategoryBubbles
+                categories={bubbleData}
+                onCategoryClick={(id) => {
+                  setFilterId(id);
+                  window.scrollTo(0, 0);
+                }}
              />
           </div>
-
           <HomeLabel title={filterId ? categories.find(c => c.id === filterId)?.name : "Recommended For You"} />
-          
           <main className="product-grid">
             {products.map(p => (
               <div key={p.id} onClick={() => handleSelectProduct(p)}>
@@ -94,7 +102,6 @@ function App() {
           </main>
         </div>
       )}
-
       {!activeProduct && !isCategoryView && <BottomNav />}
     </div>
   );
