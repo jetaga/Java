@@ -64,7 +64,7 @@ const Header = ({ darkMode, setDarkMode, onBack, isProductPage, onMenuClick, car
             userSelect: 'none'
           }}
         >
-          CHUCKS
+          WOZAA
         </div>
       </div>
 
@@ -77,7 +77,7 @@ const Header = ({ darkMode, setDarkMode, onBack, isProductPage, onMenuClick, car
           <Search size={14} style={{ color: '#888', marginRight: '6px' }} />
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder="Search wozaa.."
             style={{
               border: 'none', background: 'transparent', outline: 'none',
               width: '100%', fontSize: '0.85rem', color: 'var(--text-color)'

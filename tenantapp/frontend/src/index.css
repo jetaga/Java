@@ -1,52 +1,55 @@
 :root {
   --bg-color: #ffffff;
-  --text-color: #0f0f0f;
-  --text-muted: #606060;
+  --text-color: #0f172a;
+  --text-muted: #64748b;
   --card-bg: #f9f9f9;
-  --border-color: #eeeeee;
-  --header-height: 52px;
-  --bottom-nav-height: 52px;
-  --label-bg: #f2f2f2;
-  --label-green: #0f0f0f;
-  --img-placeholder: #f0f0f0;
+  --border-color: #e2e8f0;
+  --header-height: 60px;
+  --bottom-nav-height: 60px;
+  --label-bg: #f1f5f9;
+  --label-green: #166534;
+  --img-placeholder: #f1f5f9;
 }
 
 [data-theme='dark'] {
-  --bg-color: #0f0f0f;
-  --text-color: #ffffff;
-  --card-bg: #1e1e1e;
-  --border-color: #272727;
-  --label-bg: #272727;
-  --label-green: #ffffff;
-  --text-muted: #aaaaaa;
-  --img-placeholder: #1f2937;
+  /* This is the calm navy-black from your screenshot */
+  --bg-color: #0b1426; 
+  --text-color: #f8fafc;
+  --card-bg: #111b2d;
+  --border-color: #1e293b;
+  --label-bg: #1e293b;
+  --label-green: #4ade80;
+  --text-muted: #94a3b8;
+  --img-placeholder: #1e2937;
 }
 
 body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Inter', -apple-system, sans-serif;
-  transition: background-color 0.2s ease;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  transition: background-color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 /* Masonry Layout */
 .product-grid {
   column-count: 2;
-  column-gap: 8px;
-  padding: 8px;
+  column-gap: 10px;
+  padding: 10px;
 }
 
 .product-card {
   break-inside: avoid;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
   width: 100%;
   background-color: var(--card-bg);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
